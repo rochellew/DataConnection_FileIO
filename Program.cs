@@ -4,6 +4,9 @@ namespace DataConnection
 {
     class Program
     {
+        // If you want to use this program on your machine, you'll need to change
+        // this connection string to be the location of your SQLite db file :)
+        const string CONNECTION_STRING = @"Data Source=C:\Users\whroc\Documents\SQLite\test.db";
         static void Main(string[] args)
         {
             //ReadUsers();
@@ -55,7 +58,7 @@ namespace DataConnection
             var id = Convert.ToInt32(Console.ReadLine());
 
             // set up the SQLite connection to test.db (your connection string will be different)
-            using (var connection = new SqliteConnection(@"Data Source=C:\Users\whroc\Documents\SQLite\test.db"))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 // open the connection
                 connection.Open();
@@ -130,7 +133,7 @@ namespace DataConnection
 
         static void AddPokemonToDB(Pokemon p)
         {
-            using (var connection = new SqliteConnection(@"Data Source=C:\Users\whroc\Documents\SQLite\test.db"))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 // open connection
                 connection.Open();
@@ -164,7 +167,7 @@ namespace DataConnection
 
         static void ClearPokemonFromDB()
         {
-            using (var connection = new SqliteConnection(@"Data Source=C:\Users\whroc\Documents\SQLite\test.db"))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -178,7 +181,7 @@ namespace DataConnection
 
         static void ReadAllPokemonFromDB()
         {
-            using (var connection = new SqliteConnection(@"Data Source=C:\Users\whroc\Documents\SQLite\test.db"))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -196,7 +199,7 @@ namespace DataConnection
 
         static void ReadPokemonFromDBByNumber(int dexNumber)
         {
-            using (var connection = new SqliteConnection(@"Data Source=C:\Users\whroc\Documents\SQLite\test.db"))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
